@@ -6,20 +6,23 @@
 /*   By: tdelabro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/11 21:01:24 by tdelabro          #+#    #+#             */
-/*   Updated: 2018/11/11 21:04:46 by tdelabro         ###   ########.fr       */
+/*   Updated: 2019/03/02 20:48:06 by tdelabro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../inc/libft.h"
+#include "libft.h"
 
 void	ft_lstiter(t_list *lst, void (*f)(t_list *elem))
 {
 	t_list	*head;
 
-	head = lst;
-	while (head)
+	if (f)
 	{
-		f(head);
-		head = head->next;
+		head = lst;
+		while (head)
+		{
+			f(head);
+			head = head->next;
+		}
 	}
 }

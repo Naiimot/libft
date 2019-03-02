@@ -6,11 +6,11 @@
 /*   By: tdelabro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/18 20:33:49 by tdelabro          #+#    #+#             */
-/*   Updated: 2018/11/14 13:23:34 by tdelabro         ###   ########.fr       */
+/*   Updated: 2019/03/02 20:40:22 by tdelabro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../inc/libft.h"
+#include "libft.h"
 
 static int	ft_convert_to_10(char *nbr, const char *base)
 {
@@ -120,6 +120,8 @@ char		*ft_convert_base(char *nbr, const char *base_from, \
 	int		x;
 	int		n_10;
 
+	if (!nbr || !base_from || !base_to)
+		return (NULL);
 	n_10 = ft_convert_to_10(nbr, base_from);
 	c = 0;
 	(nbr[0] == '-') ? (c = 1) : 0;

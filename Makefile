@@ -6,7 +6,7 @@
 #    By: tdelabro <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/03/02 14:39:37 by tdelabro          #+#    #+#              #
-#    Updated: 2019/03/02 14:39:42 by tdelabro         ###   ########.fr        #
+#    Updated: 2019/03/02 21:23:08 by tdelabro         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -66,7 +66,7 @@ fclean : clean
 re : fclean all
 
 obj/%.o : %.c 
-	@$(CC) $(CFLAGS) $< -o $@
+	@$(CC) $(CFLAGS) -I$(INC_DIR) $< -o $@
 
 $(NAME) : $(OBJ_DIR) $(OBJECTS) 
 	@ar rc $@ $(OBJECTS)

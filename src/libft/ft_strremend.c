@@ -6,11 +6,11 @@
 /*   By: tdelabro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/06 15:13:27 by tdelabro          #+#    #+#             */
-/*   Updated: 2019/01/25 19:35:09 by tdelabro         ###   ########.fr       */
+/*   Updated: 2019/03/02 21:15:09 by tdelabro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../inc/libft.h"
+#include "libft.h"
 
 int		ft_strremend(char *str, int size)
 {
@@ -18,6 +18,8 @@ int		ft_strremend(char *str, int size)
 	int j;
 	int c;
 
+	if (!str)
+		return (0);
 	i = 0;
 	c = 0;
 	while (i < size - c)

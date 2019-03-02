@@ -6,15 +6,15 @@
 /*   By: tdelabro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/09 21:56:55 by tdelabro          #+#    #+#             */
-/*   Updated: 2018/11/10 14:00:05 by tdelabro         ###   ########.fr       */
+/*   Updated: 2019/03/02 20:28:44 by tdelabro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../inc/libft.h"
+#include "libft.h"
 
 void	ft_memdel(void **ap)
 {
-	if (ap)
+	if (ap && *ap)
 	{
 		free(*ap);
 		*ap = NULL;

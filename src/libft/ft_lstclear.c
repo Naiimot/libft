@@ -6,24 +6,27 @@
 /*   By: ayguillo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/03 17:24:01 by ayguillo          #+#    #+#             */
-/*   Updated: 2018/12/04 10:40:41 by ayguillo         ###   ########.fr       */
+/*   Updated: 2019/03/02 21:20:56 by tdelabro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../inc/libft.h"
+#include "libft.h"
 
 void	ft_lstclear(t_list **lst)
 {
 	t_list	*head;
 	t_list	*tmp;
 
-	head = *lst;
-	while (head)
+	if (lst)
 	{
-		tmp = head;
-		head = head->next;
-		ft_bzero(tmp->content, tmp->content_size);
-		ft_memdel(&(tmp->content));
-		free(tmp);
+		head = *lst;
+		while (head)
+		{
+			tmp = head;
+			head = head->next;
+			ft_bzero(tmp->content, tmp->content_size);
+			ft_memdel(&(tmp->content));
+			free(tmp);
+		}
 	}
 }

@@ -6,14 +6,17 @@
 /*   By: tdelabro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/11 20:14:35 by tdelabro          #+#    #+#             */
-/*   Updated: 2018/11/11 21:00:09 by tdelabro         ###   ########.fr       */
+/*   Updated: 2019/03/02 20:43:06 by tdelabro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../inc/libft.h"
+#include "libft.h"
 
 void	ft_lstadd(t_list **alst, t_list *new)
 {
-	new->next = *alst;
-	*alst = new;
+	if (alst && new)
+	{	
+		new->next = *alst;
+		*alst = new;
+	}
 }

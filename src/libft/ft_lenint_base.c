@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../inc/libft.h"
+#include "libft.h"
 
 unsigned short	ft_lenint_base(int n, unsigned short const b)
 {

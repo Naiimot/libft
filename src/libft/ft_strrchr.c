@@ -6,17 +6,19 @@
 /*   By: tdelabro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/08 14:41:01 by tdelabro          #+#    #+#             */
-/*   Updated: 2018/11/09 18:51:22 by tdelabro         ###   ########.fr       */
+/*   Updated: 2019/03/02 21:14:20 by tdelabro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../inc/libft.h"
+#include "libft.h"
 
 char	*ft_strrchr(const char *s, int c)
 {
 	int		i;
 	int		pos;
 
+	if (!s)
+		return (NULL);
 	pos = -1;
 	i = 0;
 	if ((char)c == '\0')

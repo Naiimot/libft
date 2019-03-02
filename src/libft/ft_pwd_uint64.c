@@ -6,11 +6,11 @@
 /*   By: tdelabro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/16 17:01:46 by tdelabro          #+#    #+#             */
-/*   Updated: 2019/02/19 23:50:23 by tdelabro         ###   ########.fr       */
+/*   Updated: 2019/03/02 21:20:52 by tdelabro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdint.h>
+#include <libft.h>
 
 uint64_t		ft_pwd_uint64(uint64_t n, int pow)
 {

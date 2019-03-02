@@ -6,20 +6,20 @@
 /*   By: ayguillo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/20 11:18:20 by ayguillo          #+#    #+#             */
-/*   Updated: 2018/11/23 10:58:56 by ayguillo         ###   ########.fr       */
+/*   Updated: 2019/03/02 21:04:17 by tdelabro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../inc/libft.h"
+#include "libft.h"
 
 char	*ft_strcdup(const char *s1, char c)
 {
 	char	*dup;
 	int		n;
 
-	n = 0;
 	if (!s1)
 		return (NULL);
+	n = 0;
 	while (s1[n] && s1[n] != c)
 		n++;
 	if (!(dup = (char*)malloc(sizeof(*dup) + (n + 1))))

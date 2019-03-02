@@ -6,15 +6,15 @@
 /*   By: tdelabro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/09 22:20:15 by tdelabro          #+#    #+#             */
-/*   Updated: 2018/11/10 14:00:45 by tdelabro         ###   ########.fr       */
+/*   Updated: 2019/03/02 21:07:10 by tdelabro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../inc/libft.h"
+#include "libft.h"
 
 void	ft_strdel(char **as)
 {
-	if (as)
+	if (as && *as)
 	{
 		free(*as);
 		*as = NULL;

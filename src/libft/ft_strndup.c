@@ -6,17 +6,19 @@
 /*   By: ayguillo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/14 16:41:19 by ayguillo          #+#    #+#             */
-/*   Updated: 2018/11/23 11:03:55 by ayguillo         ###   ########.fr       */
+/*   Updated: 2019/03/02 21:12:24 by tdelabro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../inc/libft.h"
+#include "libft.h"
 
 char	*ft_strndup(const char *s1, size_t size)
 {
 	char	*dup;
 	size_t	n;
 
+	if (!s1)
+		return (NULL);
 	n = 0;
 	while (s1[n] && n < size)
 		n++;

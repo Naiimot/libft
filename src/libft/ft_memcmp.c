@@ -6,18 +6,18 @@
 /*   By: tdelabro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/09 13:12:21 by tdelabro          #+#    #+#             */
-/*   Updated: 2018/11/11 17:22:57 by tdelabro         ###   ########.fr       */
+/*   Updated: 2019/03/02 20:54:22 by tdelabro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../inc/libft.h"
+#include "libft.h"
 
 int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
 	size_t i;
 
 	i = 0;
-	if (n == 0)
+	if (!s1 || !s2 || !n)
 		return (0);
 	while (((unsigned char*)s1)[i] == ((unsigned char*)s2)[i] && i < n - 1)
 		i++;
