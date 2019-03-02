@@ -6,14 +6,14 @@
 #    By: ayguillo <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/27 09:28:09 by ayguillo          #+#    #+#              #
-#    Updated: 2019/02/25 19:36:23 by tdelabro         ###   ########.fr        #
+#    Updated: 2019/03/02 14:35:05 by tdelabro         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libft.a
 CC = gcc
 CFLAGS = -c -Wall -Wextra -Werror
-MODULES := libft/
+MODULES := libft/ gnl/
 SRC_DIR := $(addprefix src/,$(MODULES))
 OBJ_DIR := obj/
 INC_DIR := inc/
@@ -22,7 +22,7 @@ SRC := ft_atoi.c			ft_memmove.c				ft_strequ.c\
 	ft_atoll.c			ft_memset.c					ft_striter.c\
 	ft_bzero.c			ft_print_words_tables.c		ft_striteri.c\
 	ft_convert_base.c	ft_strjoin.c\
-	ft_putchar.c		ft_strlcat.c\
+	get_next_line.c			ft_putchar.c				ft_strlcat.c\
 	ft_isalnum.c		ft_putchar_fd.c				ft_strlen.c\
 	ft_isalpha.c		ft_putendl.c				ft_strmap.c\
 	ft_isascii.c		ft_putendl_fd.c				ft_strmapi.c\
@@ -45,8 +45,8 @@ SRC := ft_atoi.c			ft_memmove.c				ft_strequ.c\
 	ft_memcmp.c			ft_strcpy.c					ft_tolower.c\
 	ft_memcpy.c			ft_strdel.c					ft_toupper.c\
 	ft_memdel.c			ft_strdup.c					ft_lenint_base.c\
-
-INC := libft.h
+	
+INC := libft.h get_next_line.h ft_printf.h
 
 OBJECTS := $(addprefix $(OBJ_DIR), $(notdir $(SRC:.c=.o)))
 INCLUDES := $(addprefix $(INC_DIR), $(INC))
