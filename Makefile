@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: ayguillo <marvin@42.fr>                    +#+  +:+       +#+         #
+#    By: tdelabro <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2018/11/27 09:28:09 by ayguillo          #+#    #+#              #
-#    Updated: 2019/03/02 14:35:05 by tdelabro         ###   ########.fr        #
+#    Created: 2019/03/02 14:39:37 by tdelabro          #+#    #+#              #
+#    Updated: 2019/03/02 14:39:42 by tdelabro         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -46,7 +46,7 @@ SRC := ft_atoi.c			ft_memmove.c				ft_strequ.c\
 	ft_memcpy.c			ft_strdel.c					ft_toupper.c\
 	ft_memdel.c			ft_strdup.c					ft_lenint_base.c\
 	
-INC := libft.h get_next_line.h ft_printf.h
+INC := libft.h get_next_line.h
 
 OBJECTS := $(addprefix $(OBJ_DIR), $(notdir $(SRC:.c=.o)))
 INCLUDES := $(addprefix $(INC_DIR), $(INC))
