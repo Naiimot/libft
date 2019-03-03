@@ -6,7 +6,7 @@
 /*   By: tdelabro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/25 12:44:53 by tdelabro          #+#    #+#             */
-/*   Updated: 2019/03/02 20:23:35 by tdelabro         ###   ########.fr       */
+/*   Updated: 2019/03/03 22:20:39 by tdelabro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,12 +49,12 @@ static t_fd	*ft_initfd(int fd, char *buff)
 	return (new);
 }
 
-static void	ft_check_multiple_lines(t_fd *current_fd, char **line, char *buff)
+static void	ft_refill(t_fd *current_fd, char **line, char *buff)
 {
 	char *tmp;
 
 	tmp = current_fd->remain;
-	if (current_fd->remain != NULL && (current_fd->remain = \
+	if ((current_fd->remain = \
 			ft_strchr(current_fd->remain, '\n')) != NULL)
 	{
 		*(current_fd->remain)++ = '\0';
@@ -64,12 +64,13 @@ static void	ft_check_multiple_lines(t_fd *current_fd, char **line, char *buff)
 	{
 		*line = ft_strdup(tmp);
 		ft_memdel((void**)&current_fd->str);
-		current_fd->remain = NULL;
 		ft_fill_node(buff, current_fd);
 		if (*line && current_fd->str)
+		{
+			tmp = *line;
 			*line = ft_strjoin(*line, current_fd->str);
-		else if (current_fd->str)
-			*line = ft_strdup(current_fd->str);
+			ft_memdel((void**)&tmp);
+		}
 	}
 }
 
@@ -96,7 +97,7 @@ int			get_next_line(const int fd, char **line)
 		*line = ft_strdup(((t_fd*)head->content)->str);
 	}
 	else
-		ft_check_multiple_lines(head->content, line, buff);
+		ft_refill(head->content, line, buff);
 	if (ft_strlen(*line) > 0)
 		((t_fd*)head->content)->ret = 1;
 	return (((t_fd*)head->content)->ret);
