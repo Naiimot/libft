@@ -6,7 +6,7 @@
 /*   By: tdelabro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/25 12:44:53 by tdelabro          #+#    #+#             */
-/*   Updated: 2019/02/25 19:53:31 by tdelabro         ###   ########.fr       */
+/*   Updated: 2019/03/02 20:23:35 by tdelabro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ static void	ft_check_multiple_lines(t_fd *current_fd, char **line, char *buff)
 	char *tmp;
 
 	tmp = current_fd->remain;
-	if ((current_fd->remain = \
+	if (current_fd->remain != NULL && (current_fd->remain = \
 			ft_strchr(current_fd->remain, '\n')) != NULL)
 	{
 		*(current_fd->remain)++ = '\0';
@@ -79,7 +79,7 @@ int			get_next_line(const int fd, char **line)
 	static t_list	*lst = NULL;
 	t_list			*head;
 
-	if ((read(fd, NULL, 0) == -1) || !(line) || BUFF_SIZE < 0)
+	if (fd < 0 || (read(fd, NULL, 0) == -1) || !(line) || BUFF_SIZE < 0)
 		return (-1);
 	head = lst;
 	while (head)
