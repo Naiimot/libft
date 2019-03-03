@@ -6,7 +6,7 @@
 #    By: tdelabro <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/03/02 14:39:37 by tdelabro          #+#    #+#              #
-#    Updated: 2019/03/02 21:23:08 by tdelabro         ###   ########.fr        #
+#    Updated: 2019/03/03 22:26:20 by tdelabro         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -56,23 +56,21 @@ vpath %.c $(SRC_DIR)
 all : $(NAME)
 
 clean :
-	@rm -rf $(OBJ_DIR)
-	@echo "object deleted ✔"
+	rm -rf $(OBJ_DIR)
 
 fclean : clean
-	@rm -rf $(NAME)
-	@echo "$(NAME) deleted ✔"
+	rm -rf $(NAME)
 
 re : fclean all
 
 obj/%.o : %.c 
-	@$(CC) $(CFLAGS) -I$(INC_DIR) $< -o $@
+	$(CC) $(CFLAGS) -I$(INC_DIR) $< -o $@
 
 $(NAME) : $(OBJ_DIR) $(OBJECTS) 
-	@ar rc $@ $(OBJECTS)
-	@ranlib $@
+	ar rc $@ $(OBJECTS)
+	ranlib $@
 
 $(OBJ_DIR) :
-	@mkdir -p $(OBJ_DIR)
+	mkdir -p $(OBJ_DIR)
 
 .PHONY : all clean fclean re
