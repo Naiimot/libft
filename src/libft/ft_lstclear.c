@@ -6,7 +6,7 @@
 /*   By: ayguillo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/03 17:24:01 by ayguillo          #+#    #+#             */
-/*   Updated: 2019/03/02 21:20:56 by tdelabro         ###   ########.fr       */
+/*   Updated: 2019/03/07 17:58:19 by tdelabro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,5 +28,6 @@ void	ft_lstclear(t_list **lst)
 			ft_memdel(&(tmp->content));
 			free(tmp);
 		}
+		*lst = NULL;
 	}
 }

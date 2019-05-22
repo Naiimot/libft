@@ -6,14 +6,14 @@
 #    By: tdelabro <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/03/02 14:39:37 by tdelabro          #+#    #+#              #
-#    Updated: 2019/03/03 22:26:20 by tdelabro         ###   ########.fr        #
+#    Updated: 2019/05/22 14:31:29 by tdelabro         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libft.a
 CC = gcc
 CFLAGS = -c -Wall -Wextra -Werror
-MODULES := libft/ gnl/
+MODULES := libft/ gnl/ printf/
 SRC_DIR := $(addprefix src/,$(MODULES))
 OBJ_DIR := obj/
 INC_DIR := inc/
@@ -45,8 +45,20 @@ SRC := ft_atoi.c			ft_memmove.c				ft_strequ.c\
 	ft_memcmp.c			ft_strcpy.c					ft_tolower.c\
 	ft_memcpy.c			ft_strdel.c					ft_toupper.c\
 	ft_memdel.c			ft_strdup.c					ft_lenint_base.c\
-	
-INC := libft.h get_next_line.h
+	bint_manip.c    hint_opedown.c\
+	bint_opedown.c  hint_opeup.c\
+	bint_opeup.c    list.c\
+	ft_printf.c             resolve_double_f.c\
+	hint_manip.c    resolve_ldouble_f.c\
+	sub_uoctal.c    round.c\
+	parse_float.c   sub_dec.c\
+	tools.c                 sub_float.c\
+	sub_txt.c               sub_udec.c\
+	sub_uhex.c              printing_complement.c\
+	printing.c              sub_address.c\
+	sub_bin.c               resolve_float_e.c	
+
+INC := libft.h get_next_line.h ft_printf.h
 
 OBJECTS := $(addprefix $(OBJ_DIR), $(notdir $(SRC:.c=.o)))
 INCLUDES := $(addprefix $(INC_DIR), $(INC))
