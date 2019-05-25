@@ -6,7 +6,7 @@
 #    By: tdelabro <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/03/02 14:39:37 by tdelabro          #+#    #+#              #
-#    Updated: 2019/05/22 14:31:29 by tdelabro         ###   ########.fr        #
+#    Updated: 2019/05/22 17:46:18 by tdelabro         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,7 @@ SRC := ft_atoi.c			ft_memmove.c				ft_strequ.c\
 	ft_atoll.c			ft_memset.c					ft_striter.c\
 	ft_bzero.c			ft_print_words_tables.c		ft_striteri.c\
 	ft_convert_base.c	ft_strjoin.c\
-	get_next_line.c			ft_putchar.c				ft_strlcat.c\
+	get_next_line.c		ft_putchar.c				ft_strlcat.c\
 	ft_isalnum.c		ft_putchar_fd.c				ft_strlen.c\
 	ft_isalpha.c		ft_putendl.c				ft_strmap.c\
 	ft_isascii.c		ft_putendl_fd.c				ft_strmapi.c\
@@ -45,6 +45,7 @@ SRC := ft_atoi.c			ft_memmove.c				ft_strequ.c\
 	ft_memcmp.c			ft_strcpy.c					ft_tolower.c\
 	ft_memcpy.c			ft_strdel.c					ft_toupper.c\
 	ft_memdel.c			ft_strdup.c					ft_lenint_base.c\
+	ft_lstappend.c\
 	bint_manip.c    hint_opedown.c\
 	bint_opedown.c  hint_opeup.c\
 	bint_opeup.c    list.c\

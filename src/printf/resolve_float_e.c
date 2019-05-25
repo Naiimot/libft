@@ -43,7 +43,7 @@ int			ft_getstr_supone_de(t_bint *valnum, t_bint *valdenum, int *tab, \
 	if (ft_round_e(str, ret, valnum, valdenum) == TRUE)
 		ft_postround(&tab[0], &tmp, &ret);
 	ft_expo(str, tab, &ret);
-	write(1, str, ret);
+	write(g_fd, str, ret);
 	ret = ft_post_printing(ret + tmp, format);
 	return (ret);
 }
@@ -72,7 +72,7 @@ int			ft_getstr_supone_lde(t_hint *valnum, t_hint *valdenum, int *tab, \
 	if (ft_round_ld_e(str, ret, valnum, valdenum) == TRUE)
 		ft_postround(&tab[0], &tmp, &ret);
 	ft_expo(str, tab, &ret);
-	write(1, str, ret);
+	write(g_fd, str, ret);
 	ret = ft_post_printing(ret + tmp, format);
 	return (ret);
 }
@@ -98,7 +98,7 @@ int			ft_getstr_minone_de(t_bint *valnum, t_bint *valdenum, int *tab, \
 	if (ft_round_e(str, ret, valnum, valdenum) == TRUE)
 		ft_postround(&tab[0], &tmp, &ret);
 	ft_expo(str, tab, &ret);
-	write(1, str, ret);
+	write(g_fd, str, ret);
 	ret = ft_post_printing(ret + tmp, format);
 	return (ret);
 }
@@ -124,7 +124,7 @@ int			ft_getstr_minone_lde(t_hint *valnum, t_hint *valdenum, int *tab, \
 	if (ft_round_ld_e(str, ret, valnum, valdenum) == TRUE)
 		ft_postround(&tab[0], &tmp, &ret);
 	ft_expo(str, tab, &ret);
-	write(1, str, ret);
+	write(g_fd, str, ret);
 	ret = ft_post_printing(ret + tmp, format);
 	return (ret);
 }

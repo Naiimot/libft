@@ -6,7 +6,7 @@
 /*   By: tdelabro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/21 15:22:00 by tdelabro          #+#    #+#             */
-/*   Updated: 2019/02/22 17:20:37 by tdelabro         ###   ########.fr       */
+/*   Updated: 2019/05/25 15:36:49 by tdelabro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,7 +91,7 @@ static int	ft_dispatch(const char *str, va_list args, char *buff)
 		if ((ret[2] += s) && tmp->conversion == '\0')
 		{
 			ft_buff(buff, '0', 1);
-			ret[0] += write(1, tmp->buffer, tmp->buf_size - 1);
+			ret[0] += write(g_fd, tmp->buffer, tmp->buf_size - 1);
 		}
 		else
 			ret[0] += ft_substitute(tmp, args, buff);
@@ -118,6 +118,20 @@ int			ft_printf(const char *format, ...)
 	int			ret;
 	char		buff[PFBUF];
 
+	g_fd = 1;
+	va_start(args, format);
+	ret = ft_dispatch(format, args, buff);
+	va_end(args);
+	return (ret);
+}
+
+int			ft_dprintf(int fd, const char *format, ...)
+{
+	va_list		args;
+	int			ret;
+	char		buff[PFBUF];
+
+	g_fd = fd;
 	va_start(args, format);
 	ret = ft_dispatch(format, args, buff);
 	va_end(args);

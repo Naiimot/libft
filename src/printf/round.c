@@ -42,7 +42,7 @@ t_bool	ft_round_e(char *num, int len, t_bint *valnum, t_bint *valdenum)
 		if (len != -1)
 			num[len] += 1;
 		else
-			return (write(1, "1", 1));
+			return (write(g_fd, "1", 1));
 	}
 	return (0);
 }
@@ -71,7 +71,7 @@ t_bool	ft_round_ld_e(char *num, int len, t_hint *valnum, t_hint *valdenum)
 		if (len != -1)
 			num[len] += 1;
 		else
-			return (write(1, "1", 1));
+			return (write(g_fd, "1", 1));
 	}
 	return (0);
 }
@@ -98,7 +98,7 @@ t_bool	ft_round(char *num, int len, t_bint *valnum, t_bint *valdenum)
 		if (len != -1)
 			num[len] += 1;
 		else
-			return (write(1, "1", 1));
+			return (write(g_fd, "1", 1));
 	}
 	return (0);
 }
@@ -125,7 +125,7 @@ t_bool	ft_round_ld(char *num, int len, t_hint *valnum, t_hint *valdenum)
 		if (len != -1)
 			num[len] += 1;
 		else
-			return (write(1, "1", 1));
+			return (write(g_fd, "1", 1));
 	}
 	return (0);
 }

@@ -20,7 +20,7 @@ int	ft_post_printing(int ret, t_format *format)
 {
 	if (format->flag_left == TRUE)
 		while (ret < format->field_width)
-			ret += write(1, " ", 1);
+			ret += write(g_fd, " ", 1);
 	return (ret);
 }
 
@@ -70,7 +70,7 @@ int	ft_buff(char *buff, char c, t_bool clear)
 
 	if (clear == TRUE)
 	{
-		write(1, buff, i);
+		write(g_fd, buff, i);
 		i = 0;
 		return (0);
 	}
@@ -79,7 +79,7 @@ int	ft_buff(char *buff, char c, t_bool clear)
 		buff[i++] = c;
 		if (i == PFBUF)
 		{
-			write(1, buff, i);
+			write(g_fd, buff, i);
 			i = 0;
 		}
 		return (1);

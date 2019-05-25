@@ -6,7 +6,7 @@
 /*   By: ayguillo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/07 10:09:22 by ayguillo          #+#    #+#             */
-/*   Updated: 2019/03/02 21:37:46 by tdelabro         ###   ########.fr       */
+/*   Updated: 2019/05/24 18:44:05 by tdelabro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,11 @@
 # define LIBFT_H
 
 # include <string.h>
-# include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
 # include <stdint.h>
 # include <limits.h>
+# include <errno.h>
 
 # define BUFF_SIZE 128
 
@@ -97,6 +97,12 @@ void			ft_lstadd(t_list **alst, t_list *new);
 void			ft_lstiter(t_list *lst, void (*f)(t_list *elem));
 t_list			*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
 t_list			*ft_strsplit_lst(const char *s, char c);
+void			ft_lstappend(t_list **alst, t_list *new);
+void			ft_lstdelcontent(void *lst, size_t size);
+void			ft_putlst(t_list *lst);
+void			ft_lstclearifdata(t_list **lst, void *data);
+int				ft_lstlen(t_list *lst);
+void			ft_lstclear(t_list **lst);
 void			ft_putnstr(char const *s, int size);
 char			*ft_strndup(const char *s1, size_t size);
 char			*ft_strcdup(const char *s1, char c);
@@ -106,10 +112,5 @@ int				ft_pwd(int n, int pow);
 uint64_t		ft_pwd_uint64(uint64_t n, int pow);
 unsigned short	ft_lenint_base(int n, unsigned short const b);
 void			ft_print_words_tables(const char **tab);
-void			ft_lstdelcontent(void *lst, size_t size);
-void			ft_putlst(t_list *lst);
-void			ft_lstclearifdata(t_list **lst, void *data);
-int				ft_lstlen(t_list *lst);
-void			ft_lstclear(t_list **lst);
 
 #endif

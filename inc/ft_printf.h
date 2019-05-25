@@ -6,7 +6,7 @@
 /*   By: tdelabro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/15 17:37:30 by tdelabro          #+#    #+#             */
-/*   Updated: 2019/02/20 16:31:32 by tdelabro         ###   ########.fr       */
+/*   Updated: 2019/05/25 15:36:31 by tdelabro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,8 @@
 # define UCN ((unsigned char*)&n)
 # define PFBUF 1024
 # define HC ((t_format*)(head->content))
+
+extern int g_fd;
 
 typedef uint64_t	t_bint[17];
 typedef uint64_t	t_hint[258];
@@ -62,6 +64,7 @@ typedef struct		s_format
 }					t_format;
 
 int					ft_printf(const char *format, ...);
+int					ft_dprintf(int i, const char *format, ...);
 
 /*
 **	The input string is cut into different node of a linked list.

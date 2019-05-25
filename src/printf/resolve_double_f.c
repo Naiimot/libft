@@ -115,7 +115,7 @@ int		ft_getstr_supone_d(t_bint *valnum, t_bint *valdenum,\
 		str[ret] = ft_getnextdigit_dbl(valnum, valdenum);
 	}
 	ret += ft_round(str, tab[1], valnum, valdenum);
-	write(1, str, ret);
+	write(g_fd, str, ret);
 	ret = ft_post_printing(ret + tmp, format);
 	return (ret);
 }
@@ -137,7 +137,7 @@ int		ft_getstr_minone_d(t_bint *valnum, t_bint *valdenum,\
 	while (ret < tab[1])
 		str[ret++] = ft_getnextdigit_dbl(valnum, valdenum);
 	ret += ft_round(str, tab[1], valnum, valdenum);
-	write(1, str, tab[1]);
+	write(g_fd, str, tab[1]);
 	ret = ft_post_printing(ret + tmp, format);
 	return (ret);
 }
