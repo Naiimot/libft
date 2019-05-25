@@ -6,11 +6,13 @@
 /*   By: tdelabro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/21 15:22:00 by tdelabro          #+#    #+#             */
-/*   Updated: 2019/05/25 15:36:49 by tdelabro         ###   ########.fr       */
+/*   Updated: 2019/05/25 16:14:38 by tdelabro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/ft_printf.h"
+
+int g_fd = 1;
 
 /*
 ** The two substitutes functions are in reality the same.
@@ -118,7 +120,6 @@ int			ft_printf(const char *format, ...)
 	int			ret;
 	char		buff[PFBUF];
 
-	g_fd = 1;
 	va_start(args, format);
 	ret = ft_dispatch(format, args, buff);
 	va_end(args);

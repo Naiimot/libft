@@ -6,7 +6,7 @@
 #    By: tdelabro <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/03/02 14:39:37 by tdelabro          #+#    #+#              #
-#    Updated: 2019/05/22 17:46:18 by tdelabro         ###   ########.fr        #
+#    Updated: 2019/05/25 17:08:40 by tdelabro         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -45,7 +45,7 @@ SRC := ft_atoi.c			ft_memmove.c				ft_strequ.c\
 	ft_memcmp.c			ft_strcpy.c					ft_tolower.c\
 	ft_memcpy.c			ft_strdel.c					ft_toupper.c\
 	ft_memdel.c			ft_strdup.c					ft_lenint_base.c\
-	ft_lstappend.c\
+	ft_lstappend.c		ft_lstinsert.c\
 	bint_manip.c    hint_opedown.c\
 	bint_opedown.c  hint_opeup.c\
 	bint_opeup.c    list.c\
