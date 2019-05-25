@@ -6,11 +6,9 @@
 /*   By: tdelabro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/08 13:53:13 by tdelabro          #+#    #+#             */
-/*   Updated: 2019/03/02 21:04:00 by tdelabro         ###   ########.fr       */
+/*   Updated: 2019/05/25 22:33:16 by tdelabro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include "libft.h"
 
 char	*ft_strcat(char *s1, const char *s2)
 {

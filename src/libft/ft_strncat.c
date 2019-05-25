@@ -6,11 +6,11 @@
 /*   By: tdelabro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/08 14:06:34 by tdelabro          #+#    #+#             */
-/*   Updated: 2019/03/02 21:10:06 by tdelabro         ###   ########.fr       */
+/*   Updated: 2019/05/25 22:01:12 by tdelabro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <stdlib.h>
 
 char	*ft_strncat(char *s1, const char *s2, size_t n)
 {

@@ -6,11 +6,9 @@
 /*   By: tdelabro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/06 15:13:27 by tdelabro          #+#    #+#             */
-/*   Updated: 2019/03/02 21:15:09 by tdelabro         ###   ########.fr       */
+/*   Updated: 2019/05/25 22:29:59 by tdelabro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include "libft.h"
 
 int		ft_strremend(char *str, int size)
 {

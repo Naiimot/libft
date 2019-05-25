@@ -6,11 +6,9 @@
 /*   By: tdelabro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/12 17:25:13 by tdelabro          #+#    #+#             */
-/*   Updated: 2019/02/18 16:06:12 by tdelabro         ###   ########.fr       */
+/*   Updated: 2019/05/25 22:34:35 by tdelabro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include "libft.h"
 
 unsigned short	ft_lenint_base(int n, unsigned short const b)
 {

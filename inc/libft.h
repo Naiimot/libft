@@ -6,19 +6,15 @@
 /*   By: ayguillo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/07 10:09:22 by ayguillo          #+#    #+#             */
-/*   Updated: 2019/05/25 17:08:10 by tdelabro         ###   ########.fr       */
+/*   Updated: 2019/05/25 21:55:49 by tdelabro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 
-# include <string.h>
 # include <stdlib.h>
-# include <unistd.h>
 # include <stdint.h>
-# include <limits.h>
-# include <errno.h>
 
 # define BUFF_SIZE 128
 

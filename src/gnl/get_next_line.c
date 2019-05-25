@@ -6,10 +6,11 @@
 /*   By: tdelabro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/25 12:44:53 by tdelabro          #+#    #+#             */
-/*   Updated: 2019/03/03 22:20:39 by tdelabro         ###   ########.fr       */
+/*   Updated: 2019/05/25 21:57:38 by tdelabro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <unistd.h>
 #include "../../inc/get_next_line.h"
 
 static void	ft_fill_node(char *buff, t_fd *current_fd)

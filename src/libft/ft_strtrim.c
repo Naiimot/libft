@@ -6,11 +6,11 @@
 /*   By: tdelabro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/10 14:49:53 by tdelabro          #+#    #+#             */
-/*   Updated: 2018/11/11 16:52:37 by tdelabro         ###   ########.fr       */
+/*   Updated: 2019/05/25 22:17:16 by tdelabro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <stdlib.h>
 
 static int	ft_get_start(const char *s)
 {

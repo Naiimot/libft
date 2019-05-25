@@ -6,11 +6,12 @@
 /*   By: tdelabro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/11 13:20:17 by tdelabro          #+#    #+#             */
-/*   Updated: 2019/02/08 14:48:24 by tdelabro         ###   ########.fr       */
+/*   Updated: 2019/05/25 22:03:46 by tdelabro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <stdlib.h>
+#include <limits.h>
 
 static int	ft_get_size(int n)
 {

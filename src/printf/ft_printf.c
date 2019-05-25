@@ -6,10 +6,11 @@
 /*   By: tdelabro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/21 15:22:00 by tdelabro          #+#    #+#             */
-/*   Updated: 2019/05/25 16:14:38 by tdelabro         ###   ########.fr       */
+/*   Updated: 2019/05/25 22:26:08 by tdelabro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <unistd.h>
 #include "../../inc/ft_printf.h"
 
 int g_fd = 1;

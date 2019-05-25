@@ -6,11 +6,11 @@
 /*   By: tdelabro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/08 13:41:03 by tdelabro          #+#    #+#             */
-/*   Updated: 2019/03/02 21:11:30 by tdelabro         ###   ########.fr       */
+/*   Updated: 2019/05/25 22:05:21 by tdelabro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <stdlib.h>
 
 char	*ft_strncpy(char *dst, const char *src, size_t len)
 {

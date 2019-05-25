@@ -6,11 +6,9 @@
 /*   By: tdelabro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/08 13:34:37 by tdelabro          #+#    #+#             */
-/*   Updated: 2019/03/02 21:06:47 by tdelabro         ###   ########.fr       */
+/*   Updated: 2019/05/25 22:32:57 by tdelabro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include "libft.h"
 
 char	*ft_strcpy(char *dst, const char *src)
 {

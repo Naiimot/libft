@@ -6,11 +6,9 @@
 /*   By: tdelabro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/03 18:25:56 by tdelabro          #+#    #+#             */
-/*   Updated: 2019/03/02 21:28:09 by tdelabro         ###   ########.fr       */
+/*   Updated: 2019/05/25 21:32:53 by tdelabro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include "libft.h"
 
 long long	ft_atoll(const char *str)
 {

@@ -6,7 +6,7 @@
 /*   By: tdelabro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/15 17:37:30 by tdelabro          #+#    #+#             */
-/*   Updated: 2019/05/25 15:36:31 by tdelabro         ###   ########.fr       */
+/*   Updated: 2019/05/25 22:26:27 by tdelabro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 # define FT_PRINTF_H
 
 # include <stdarg.h>
-# include <math.h>
 # include "libft.h"
 
 # define FFLEFT format->flag_left

@@ -6,11 +6,11 @@
 /*   By: tdelabro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/18 20:33:49 by tdelabro          #+#    #+#             */
-/*   Updated: 2019/03/02 20:40:22 by tdelabro         ###   ########.fr       */
+/*   Updated: 2019/05/25 21:47:28 by tdelabro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <stdlib.h>
 
 static int	ft_convert_to_10(char *nbr, const char *base)
 {

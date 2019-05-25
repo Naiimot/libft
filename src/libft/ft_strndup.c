@@ -6,11 +6,11 @@
 /*   By: ayguillo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/14 16:41:19 by ayguillo          #+#    #+#             */
-/*   Updated: 2019/03/02 21:12:24 by tdelabro         ###   ########.fr       */
+/*   Updated: 2019/05/25 22:30:17 by tdelabro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <stdlib.h>
 
 char	*ft_strndup(const char *s1, size_t size)
 {

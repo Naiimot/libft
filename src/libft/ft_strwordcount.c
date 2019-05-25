@@ -6,11 +6,9 @@
 /*   By: tdelabro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/13 14:45:59 by tdelabro          #+#    #+#             */
-/*   Updated: 2018/11/18 14:59:33 by tdelabro         ###   ########.fr       */
+/*   Updated: 2019/05/25 22:29:39 by tdelabro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include "libft.h"
 
 int		ft_strwordcount(const char *s, char c)
 {
