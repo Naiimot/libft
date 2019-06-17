@@ -13,7 +13,7 @@
 #include <unistd.h>
 #include "../../inc/ft_printf.h"
 
-int g_fd = 1;
+int	g_fd = 1;
 
 /*
 ** The two substitutes functions are in reality the same.
@@ -121,6 +121,7 @@ int			ft_printf(const char *format, ...)
 	int			ret;
 	char		buff[PFBUF];
 
+	g_fd = 1;
 	va_start(args, format);
 	ret = ft_dispatch(format, args, buff);
 	va_end(args);

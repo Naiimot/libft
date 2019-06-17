@@ -6,7 +6,7 @@
 #    By: tdelabro <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/03/02 14:39:37 by tdelabro          #+#    #+#              #
-#    Updated: 2019/05/25 17:08:40 by tdelabro         ###   ########.fr        #
+#    Updated: 2019/06/17 22:00:13 by tdelabro         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,7 @@ INC_DIR := inc/
 SRC := ft_atoi.c			ft_memmove.c				ft_strequ.c\
 	ft_atoll.c			ft_memset.c					ft_striter.c\
 	ft_bzero.c			ft_print_words_tables.c		ft_striteri.c\
-	ft_convert_base.c	ft_strjoin.c\
+	ft_convert_base.c	ft_strjoin.c				ft_strjoinsep.c\
 	get_next_line.c		ft_putchar.c				ft_strlcat.c\
 	ft_isalnum.c		ft_putchar_fd.c				ft_strlen.c\
 	ft_isalpha.c		ft_putendl.c				ft_strmap.c\
@@ -34,7 +34,7 @@ SRC := ft_atoi.c			ft_memmove.c				ft_strequ.c\
 	ft_lstclearifdata.c	ft_putstr.c					ft_strnew.c\
 	ft_lstdel.c			ft_putstr_fd.c				ft_strnstr.c\
 	ft_lstdelcontent.c	ft_pwd.c					ft_strrchr.c\
-	ft_lstdelone.c		ft_pwd_uint64.c				ft_strremend.c\
+	ft_lstdelone.c		ft_strremend.c\
 	ft_lstiter.c		ft_sqrt.c					ft_strrev.c\
 	ft_lstlen.c			ft_strcat.c					ft_strsplit.c\
 	ft_lstmap.c			ft_strcdup.c				ft_strsplit_lst.c\
@@ -45,10 +45,10 @@ SRC := ft_atoi.c			ft_memmove.c				ft_strequ.c\
 	ft_memcmp.c			ft_strcpy.c					ft_tolower.c\
 	ft_memcpy.c			ft_strdel.c					ft_toupper.c\
 	ft_memdel.c			ft_strdup.c					ft_lenint_base.c\
-	ft_lstappend.c		ft_lstinsert.c\
+	ft_lstappend.c		ft_lstinsert.c				ft_lstnew_p.c\
 	bint_manip.c    hint_opedown.c\
 	bint_opedown.c  hint_opeup.c\
-	bint_opeup.c    list.c\
+	bint_opeup.c\
 	ft_printf.c             resolve_double_f.c\
 	hint_manip.c    resolve_ldouble_f.c\
 	sub_uoctal.c    round.c\

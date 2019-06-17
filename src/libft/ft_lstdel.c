@@ -6,27 +6,24 @@
 /*   By: tdelabro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/11 19:59:42 by tdelabro          #+#    #+#             */
-/*   Updated: 2019/05/25 22:06:28 by tdelabro         ###   ########.fr       */
+/*   Updated: 2018/11/11 20:13:05 by tdelabro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../../inc/libft.h"
 
 void	ft_lstdel(t_list **alst, void (*del)(void *, size_t))
 {
 	t_list	*head;
 	t_list	*next;
 
-	if (alst && del)
+	head = *alst;
+	while (head)
 	{
-		head = *alst;
-		while (head)
-		{
-			next = head->next;
-			del(head->content, head->content_size);
-			free(head);
-			head = next;
-		}
-		*alst = NULL;
+		next = head->next;
+		del(head->content, head->content_size);
+		free(head);
+		head = next;
 	}
+	*alst = NULL;
 }

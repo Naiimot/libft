@@ -6,11 +6,30 @@
 /*   By: tdelabro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/23 19:58:05 by tdelabro          #+#    #+#             */
-/*   Updated: 2019/02/20 15:18:00 by tdelabro         ###   ########.fr       */
+/*   Updated: 2019/06/15 16:22:05 by tdelabro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/ft_printf.h"
+
+uint64_t	ft_pwd_uint64(uint64_t n, int pow)
+{
+	uint64_t	res;
+
+	res = n;
+	if (pow < 0 || n == 0)
+		return (0);
+	if (pow == 0)
+		return (1);
+	if (pow == 1)
+		return (n);
+	while (pow > 1)
+	{
+		res = res * n;
+		pow--;
+	}
+	return (res);
+}
 
 /*
 ** Store in 'result' the result of 'n + m'
