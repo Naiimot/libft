@@ -6,7 +6,7 @@
 #    By: tdelabro <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/03/02 14:39:37 by tdelabro          #+#    #+#              #
-#    Updated: 2019/06/17 22:00:13 by tdelabro         ###   ########.fr        #
+#    Updated: 2019/05/28 13:24:19 by tdelabro         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -48,7 +48,7 @@ SRC := ft_atoi.c			ft_memmove.c				ft_strequ.c\
 	ft_lstappend.c		ft_lstinsert.c				ft_lstnew_p.c\
 	bint_manip.c    hint_opedown.c\
 	bint_opedown.c  hint_opeup.c\
-	bint_opeup.c\
+	bint_opeup.c    list.c\
 	ft_printf.c             resolve_double_f.c\
 	hint_manip.c    resolve_ldouble_f.c\
 	sub_uoctal.c    round.c\
