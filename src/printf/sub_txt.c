@@ -6,7 +6,7 @@
 /*   By: tdelabro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/18 23:28:50 by tdelabro          #+#    #+#             */
-/*   Updated: 2019/02/28 18:39:57 by tdelabro         ###   ########.fr       */
+/*   Updated: 2020/11/13 11:52:20 by tdelabro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,9 @@ int			ft_sub_unknown(t_format *format, va_list args, char *buff)
 
 	if (args || !args)
 		ret = 0;
-	padd = (FFZERO == TRUE && FFLEFT == FALSE) ? '0' : ' ';
-	if (format->flag_left == FALSE)
+	padd = (format->f_zero == TRUE && format->f_left == FALSE)\
+			? '0' : ' ';
+	if (format->f_left == FALSE)
 	{
 		if (format->field_width > 1)
 			while (ret < format->field_width - 1)
@@ -48,8 +49,9 @@ int			ft_sub_percent(t_format *format, va_list args, char *buff)
 
 	if (args || !args)
 		ret = 0;
-	padd = (FFZERO == TRUE && FFLEFT == FALSE) ? '0' : ' ';
-	if (format->flag_left == FALSE)
+	padd = (format->f_zero == TRUE && format->f_left == FALSE)\
+			? '0' : ' ';
+	if (format->f_left == FALSE)
 	{
 		if (format->field_width > 1)
 			while (ret < format->field_width - 1)
@@ -73,13 +75,14 @@ int			ft_sub_char(t_format *format, va_list args, char *buff)
 
 	c = va_arg(args, int);
 	ret = 0;
-	padd = (format->flag_zero == TRUE && FFLEFT == FALSE) ? '0' : ' ';
-	if (format->flag_left == FALSE)
+	padd = (format->f_zero == TRUE && format->f_left == FALSE)\
+			? '0' : ' ';
+	if (format->f_left == FALSE)
 		if (format->field_width > 1)
 			while (ret < format->field_width - 1)
 				ret += ft_buff(buff, padd, 0);
 	ret += ft_buff(buff, c, 0);
-	if (format->flag_left == TRUE)
+	if (format->f_left == TRUE)
 		while (ret < format->field_width)
 			ret += ft_buff(buff, ' ', 0);
 	return (ret);
@@ -112,18 +115,20 @@ int			ft_sub_string(t_format *format, va_list args, char *buff)
 	str = va_arg(args, char*);
 	ret = 0;
 	if (str)
-		!(str[0]) ? format->flag_prec = 0 : 1;
-	padd = (format->flag_zero == TRUE && FFLEFT == FALSE) ? '0' : ' ';
+		!(str[0]) ? format->f_prec = 0 : 1;
+	padd = (format->f_zero == TRUE && format->f_left == FALSE)\
+			? '0' : ' ';
 	tmp = (str == NULL) ? 6 : ft_strlen(str);
-	if (format->flag_left == FALSE)
+	if (format->f_left == FALSE)
 	{
-		tmp = (format->flag_prec == TRUE && FPRECI < tmp) ? FPRECI : tmp;
+		tmp = (format->f_prec == TRUE && format->precision < tmp)\
+				? format->precision : tmp;
 		while (tmp++ < format->field_width)
 			ret += ft_buff(buff, padd, 0);
 	}
 	ret += ft_getstr(buff, (str == NULL) ? "(null)" : str,\
-											format->flag_prec, FPRECI);
-	if (format->flag_left == TRUE)
+						format->f_prec, format->precision);
+	if (format->f_left == TRUE)
 		while (ret < format->field_width)
 			ret += ft_buff(buff, ' ', 0);
 	return (ret);

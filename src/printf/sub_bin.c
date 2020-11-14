@@ -6,7 +6,7 @@
 /*   By: tdelabro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/11 14:51:13 by tdelabro          #+#    #+#             */
-/*   Updated: 2019/02/20 16:12:17 by tdelabro         ###   ########.fr       */
+/*   Updated: 2020/11/13 13:47:50 by tdelabro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ static int	ft_get_len_bin(uintmax_t num, t_format *format)
 {
 	int	len;
 
-	if (num == 0 && !(format->flag_prec == TRUE && format->precision == 0))
+	if (num == 0 && !(format->f_prec == TRUE && format->precision == 0))
 		return (1);
 	len = 0;
 	while ((num != 0) && (++len))
@@ -57,20 +57,21 @@ static int	ft_print_bin(t_format *format, int len, char *buff, uintmax_t num)
 	int				tmp;
 
 	ret = 0;
-	FFZERO = (FFZERO == 1 && FFLEFT == 0 && format->flag_prec == 0) ? 1 : 0;
-	tmp = (format->flag_prec == TRUE && FPRECI > len) ? FPRECI : len;
-	if (format->flag_zero == TRUE || format->flag_left == TRUE)
-		while (format->flag_zero == TRUE && ret < format->field_width - tmp)
+	format->f_zero = (format->f_zero == 1\
+			&& format->f_left == 0 && format->f_prec == 0) ? 1 : 0;
+	tmp = (format->f_prec == TRUE && format->precision > len)\
+			? format->precision : len;
+	if (format->f_zero == TRUE || format->f_left == TRUE)
+		while (format->f_zero == TRUE && ret < format->field_width - tmp)
 			ret += ft_buff(buff, '0', 0);
 	else
 		while (format->field_width > tmp && ret < format->field_width - tmp)
 			ret += ft_buff(buff, ' ', 0);
-	while (format->flag_prec == TRUE && len < tmp--)
+	while (format->f_prec == TRUE && len < tmp--)
 		ret += ft_buff(buff, '0', 0);
-	if (num == 0 && format->flag_prec == TRUE && format->precision == 0)
-		return (ret);
-	ret += ft_getbin(num, buff, len);
-	if (format->flag_left == TRUE)
+	if (!(num == 0 && format->f_prec == TRUE && format->precision == 0))
+		ret += ft_getbin(num, buff, len);
+	if (format->f_left == TRUE)
 		while (ret < format->field_width)
 			ret += ft_buff(buff, ' ', 0);
 	return (ret);

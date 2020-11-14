@@ -18,13 +18,13 @@
 
 void	ft_formattozero(t_format *format)
 {
-	format->flag_hash = 0;
-	format->flag_zero = 0;
-	format->flag_left = 0;
-	format->flag_sign = 0;
-	format->flag_space = 0;
+	format->f_hash = 0;
+	format->f_zero = 0;
+	format->f_left = 0;
+	format->f_sign = 0;
+	format->f_space = 0;
 	format->field_width = 0;
-	format->flag_prec = 0;
+	format->f_prec = 0;
 	format->precision = 0;
 	format->len_mod = 0;
 	format->conversion = 0;

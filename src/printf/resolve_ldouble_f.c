@@ -124,7 +124,7 @@ int			ft_getstr_minone_ld(t_hint *valnum, t_hint *valdenum, int *tab,\
 	ret = 0;
 	tmp = ft_pre_printing_float(format, tab[1], tab[2]);
 	str[ret++] = '0';
-	if (format->precision != 0 || format->flag_hash == TRUE)
+	if (format->precision != 0 || format->f_hash == TRUE)
 		str[ret++] = '.';
 	while (ret < tab[1] && ret < tab[0] + 1)
 		str[ret++] = '0';

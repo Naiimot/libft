@@ -6,7 +6,7 @@
 /*   By: tdelabro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/15 17:37:19 by tdelabro          #+#    #+#             */
-/*   Updated: 2019/05/25 22:27:36 by tdelabro         ###   ########.fr       */
+/*   Updated: 2020/11/14 14:26:28 by tdelabro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,13 +52,13 @@ static int	ft_res_ldbl(long double n, t_format *format)
 	tab[2] = (((unsigned char*)&n)[9] & 0x80) >> 7;
 	tab[3] = (n >= 1 || n <= -1) ? 1 : 0;
 	if (format->conversion == 'e')
-		tab[1] = 4 + ((format->flag_prec == 1) ? format->precision : 6) \
+		tab[1] = 4 + ((format->f_prec == 1) ? format->precision : 6) \
 			+ ((tab[0] < 100) ? 2 : ft_lenint_base(tab[0], 10));
 	else if (n >= 1 || n <= -1)
-		tab[1] = (format->flag_prec == 1 && FPRECI == 0) ?\
+		tab[1] = (format->f_prec == 1 && format->precision == 0) ?\
 			1 + tab[0] : (2 + tab[0] + format->precision);
 	else
-		tab[1] = (format->precision == 0 && format->flag_hash == FALSE) ?\
+		tab[1] = (format->precision == 0 && format->f_hash == FALSE) ?\
 			1 : (2 + format->precision);
 	return (ft_sndp_ldbl(&valnum, &valdenum, tab, format));
 }
@@ -96,13 +96,13 @@ static int	ft_res_dbl(double n, t_format *format)
 	tab[2] = (*(int64_t*)&n & 0x8000000000000000) >> 63;
 	tab[3] = (n >= 1 || n <= -1) ? 1 : 0;
 	if (format->conversion == 'e')
-		tab[1] = 4 + ((format->flag_prec == 1) ? format->precision : 6) \
+		tab[1] = 4 + ((format->f_prec == 1) ? format->precision : 6) \
 			+ ((tab[0] < 100) ? 2 : ft_lenint_base(tab[0], 10));
 	else if (n >= 1 || n <= -1)
-		tab[1] = (format->flag_prec == 1 && FPRECI == 0) ?\
+		tab[1] = (format->f_prec == 1 && format->precision == 0) ?\
 			1 + tab[0] : (2 + tab[0] + format->precision);
 	else
-		tab[1] = (format->precision == 0 && format->flag_hash == FALSE) ?\
+		tab[1] = (format->precision == 0 && format->f_hash == FALSE) ?\
 			1 : (2 + format->precision);
 	return (ft_sndp_dbl(&valnum, &valdenum, tab, format));
 }
@@ -115,15 +115,17 @@ static int	ft_res_dbl(double n, t_format *format)
 
 int			ft_sub_float(t_format *format, va_list args, char *buff)
 {
-	double		n;
-	long double	m;
-	int			ret;
+	double			n;
+	long double		m;
+	unsigned char	*b;
+	int				ret;
 
 	if (format->len_mod == L)
 	{
 		m = (long double)va_arg(args, long double);
-		if (UCM[0] == 0 && UCM[1] == 0 && UCM[2] == 0 && UCM[3] == 0 \
-			&& UCM[4] == 1 && UCM[5] == 0 && UCM[6] == 0 && UCM[7] == 0)
+		b = ((unsigned char*)&m);
+		if (!b[0] && !b[1] && !b[2] && !b[3] && b[4] == 1\
+			&& !b[5] && !b[6] && !b[7])
 			ret = ft_parse_ldbl(NAN, format, buff);
 		else
 			ret = ft_parse_ldbl(m, format, buff);
@@ -133,9 +135,7 @@ int			ft_sub_float(t_format *format, va_list args, char *buff)
 		n = (double)va_arg(args, double);
 		ret = ft_parse_dbl(n, format, buff);
 	}
-	if (ret == 0)
-		ft_buff(buff, 0, 1);
-	if (ret == 0)
+	if (ret == 0 && !ft_buff(buff, 0, 1))
 		ret = (format->len_mod == L) ? ft_res_ldbl(m, format) : \
 			ft_res_dbl(n, format);
 	return (ret);

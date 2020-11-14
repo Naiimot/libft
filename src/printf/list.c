@@ -6,7 +6,7 @@
 /*   By: tdelabro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/25 17:46:57 by tdelabro          #+#    #+#             */
-/*   Updated: 2019/02/28 15:44:19 by tdelabro         ###   ########.fr       */
+/*   Updated: 2020/11/14 14:37:21 by tdelabro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,12 +72,15 @@ static void		ft_init_prec(t_format *format, unsigned char i, va_list args)
 {
 	format->precision = (format->conversion == 'f' || \
 			format->conversion == 'e') ? 6 : 0;
-	if ((format->buffer)[i] == '.' && (format->flag_prec = 1))
+	if ((format->buffer)[i] == '.' && (format->f_prec = 1))
 	{
 		if (format->buffer[i + 1] == '*' && (i += 2))
 		{
 			format->precision = (int)va_arg(args, int);
-			(format->precision < 0) ? format->flag_prec = 0 : 1;
+			if ((format->conversion == 'f' || format->conversion == 'e')\
+					&& format->precision < 0)
+				format->precision = 6;
+			(format->precision < 0) ? format->f_prec = 0 : 1;
 		}
 		else
 		{
@@ -97,15 +100,16 @@ static void		ft_fill_format(t_format *format, va_list args)
 	format->conversion = format->buffer[format->buf_size - 2];
 	while (ft_memchr("#0- +", format->buffer[++i], sizeof("#0- +")) != NULL)
 	{
-		FFHASH = (format->buffer[i] != '#' && format->flag_hash == 0) ? 0 : 1;
-		FFZERO = (format->buffer[i] != '0' && format->flag_zero == 0) ? 0 : 1;
-		FFLEFT = (format->buffer[i] != '-' && format->flag_left == 0) ? 0 : 1;
-		FFSPAC = (format->buffer[i] != ' ' && FFSPAC == 0) ? 0 : 1;
-		FFSIGN = (format->buffer[i] != '+' && format->flag_sign == 0) ? 0 : 1;
+		format->f_hash = format->buffer[i] == '#' || format->f_hash;
+		format->f_zero = format->buffer[i] == '0' || format->f_zero;
+		format->f_left = format->buffer[i] == '-' || format->f_left;
+		format->f_space = format->buffer[i] == ' ' || format->f_space;
+		format->f_sign = format->buffer[i] == '+' || format->f_sign;
 	}
-	if (format->buffer[i] == '*' && (FWIDTH = (int)va_arg(args, int)))
+	if (format->buffer[i] == '*'\
+			&& (format->field_width = (int)va_arg(args, int)))
 	{
-		if (format->field_width < 0 && (FFLEFT = 1))
+		if (format->field_width < 0 && (format->f_left = 1))
 			format->field_width *= -1;
 	}
 	else if (format->buffer[i] <= '9' && format->buffer[i] >= '1')
@@ -117,8 +121,8 @@ static void		ft_fill_format(t_format *format, va_list args)
 }
 
 /*
-** Structure t_format creation + all flags to 0 + fill buffer with the segment
-** and buff_size with its size.
+ ** Structure t_format creation + all flags to 0 + fill buffer with the segment
+ ** and buff_size with its size.
 */
 
 t_format		*ft_iniformat(const char *str, size_t s, va_list args)

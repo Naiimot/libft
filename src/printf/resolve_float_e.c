@@ -37,9 +37,9 @@ int			ft_getstr_supone_de(t_bint *valnum, t_bint *valdenum, int *tab, \
 		(str[ret] == '0') ? tab[0]-- : 1;
 	}
 	tmp = ft_pre_printing_float(format, tab[1], tab[2]);
-	if ((format->precision != 0 || format->flag_hash == TRUE) && (pt = 1))
+	if ((format->precision != 0 || format->f_hash == TRUE) && (pt = 1))
 		str[++ret] = '.';
-	while (++ret < FPRECI + 1 + (int)pt)
+	while (++ret < format->precision + 1 + (int)pt)
 		str[ret] = ft_getnextdigit_dbl(valnum, valdenum);
 	if (ft_round_e(str, ret, valnum, valdenum) == TRUE)
 		ft_postround(&tab[0], &tmp, &ret);
@@ -66,9 +66,9 @@ int			ft_getstr_supone_lde(t_hint *valnum, t_hint *valdenum, int *tab, \
 		(str[ret] == '0') ? tab[0]-- : 1;
 	}
 	tmp = ft_pre_printing_float(format, tab[1], tab[2]);
-	if ((format->precision != 0 || format->flag_hash == TRUE) && (pt = 1))
+	if ((format->precision != 0 || format->f_hash == TRUE) && (pt = 1))
 		str[++ret] = '.';
-	while (++ret < FPRECI + 1 + (int)pt)
+	while (++ret < format->precision + 1 + (int)pt)
 		str[ret] = ft_getnextdigit_ldbl(valnum, valdenum);
 	if (ft_round_ld_e(str, ret, valnum, valdenum) == TRUE)
 		ft_postround(&tab[0], &tmp, &ret);
@@ -92,9 +92,9 @@ int			ft_getstr_minone_de(t_bint *valnum, t_bint *valdenum, int *tab, \
 	while (str[ret] == '0' || (pt = 0))
 		str[ret] = ft_getnextdigit_dbl(valnum, valdenum);
 	tmp = ft_pre_printing_float(format, tab[1], tab[2]);
-	if ((format->precision != 0 || format->flag_hash == TRUE) && (pt = 1))
+	if ((format->precision != 0 || format->f_hash == TRUE) && (pt = 1))
 		str[++ret] = '.';
-	while (++ret < FPRECI + 1 + (int)pt)
+	while (++ret < format->precision + 1 + (int)pt)
 		str[ret] = ft_getnextdigit_dbl(valnum, valdenum);
 	if (ft_round_e(str, ret, valnum, valdenum) == TRUE)
 		ft_postround(&tab[0], &tmp, &ret);
@@ -118,9 +118,9 @@ int			ft_getstr_minone_lde(t_hint *valnum, t_hint *valdenum, int *tab, \
 	while (str[ret] == '0' || (pt = 0))
 		str[ret] = ft_getnextdigit_ldbl(valnum, valdenum);
 	tmp = ft_pre_printing_float(format, tab[1], tab[2]);
-	if ((format->precision != 0 || format->flag_hash == TRUE) && (pt = 1))
+	if ((format->precision != 0 || format->f_hash == TRUE) && (pt = 1))
 		str[++ret] = '.';
-	while (++ret < FPRECI + 1 + (int)pt)
+	while (++ret < format->precision + 1 + (int)pt)
 		str[ret] = ft_getnextdigit_ldbl(valnum, valdenum);
 	if (ft_round_ld_e(str, ret, valnum, valdenum) == TRUE)
 		ft_postround(&tab[0], &tmp, &ret);

@@ -6,7 +6,7 @@
 /*   By: tdelabro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/18 23:38:29 by tdelabro          #+#    #+#             */
-/*   Updated: 2019/02/20 16:23:03 by tdelabro         ###   ########.fr       */
+/*   Updated: 2020/11/13 13:46:47 by tdelabro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,14 +54,15 @@ int			ft_sub_uhex(t_format *format, va_list args, char *buff)
 	ret = 0;
 	num = ft_lenmod_u(format->len_mod, args);
 	len = ft_get_len_uhex(num, format);
-	FFZERO = (FFZERO == 1 && FFLEFT == 0 && format->flag_prec == 0) ? 1 : 0;
-	format->flag_hash = (format->flag_hash == TRUE && num != 0) ? 1 : 0;
-	tmp = (format->flag_prec == TRUE && FPRECI > len) ? FPRECI : len;
+	format->f_zero = (format->f_zero == 1 && format->f_left == 0\
+			&& format->f_prec == 0) ? 1 : 0;
+	format->f_hash = (format->f_hash == TRUE && num != 0) ? 1 : 0;
+	tmp = (format->f_prec == TRUE && format->precision > len)\
+			? format->precision : len;
 	ret += ft_pre_printing_uhex(format, len, buff, tmp);
-	if (num == 0 && format->flag_prec == TRUE && format->precision == 0)
-		return (ret);
-	ret += ft_getuhex(num, buff, len, format);
-	if (format->flag_left == TRUE)
+	if (!(num == 0 && format->f_prec == TRUE && format->precision == 0))
+		ret += ft_getuhex(num, buff, len, format);
+	if (format->f_left == TRUE)
 		while (ret < format->field_width)
 			ret += ft_buff(buff, ' ', 0);
 	return (ret);

@@ -6,7 +6,7 @@
 /*   By: tdelabro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/15 17:37:30 by tdelabro          #+#    #+#             */
-/*   Updated: 2019/05/25 22:26:27 by tdelabro         ###   ########.fr       */
+/*   Updated: 2020/11/14 13:35:09 by tdelabro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,18 +16,7 @@
 # include <stdarg.h>
 # include "libft.h"
 
-# define FFLEFT format->flag_left
-# define FFZERO format->flag_zero
-# define FFHASH format->flag_hash
-# define FFSPAC format->flag_space
-# define FFSIGN format->flag_sign
-# define FWIDTH format->field_width
-# define FPRECI format->precision
-# define FCONV format->conversion
-# define UCM ((unsigned char*)&m)
-# define UCN ((unsigned char*)&n)
 # define PFBUF 1024
-# define HC ((t_format*)(head->content))
 
 extern int g_fd;
 
@@ -48,13 +37,13 @@ typedef enum
 
 typedef struct		s_format
 {
-	unsigned short	flag_hash : 1;
-	unsigned short	flag_zero : 1;
-	unsigned short	flag_left: 1;
-	unsigned short	flag_space : 1;
-	unsigned short	flag_sign : 1;
+	unsigned short	f_hash : 1;
+	unsigned short	f_zero : 1;
+	unsigned short	f_left: 1;
+	unsigned short	f_space : 1;
+	unsigned short	f_sign : 1;
 	int				field_width;
-	unsigned short	flag_prec : 1;
+	unsigned short	f_prec : 1;
 	int				precision;
 	t_len_mod		len_mod;
 	char			conversion;
@@ -102,6 +91,7 @@ uintmax_t			ft_lenmod_u(t_len_mod tlen, va_list args);
 */
 
 int					ft_buff(char *buff, char c, t_bool clear);
+int					padd(int limit, int ret, char *buff, char c);
 char				*ft_width(char *output, int width, t_bool left,\
 						t_bool zero);
 t_bool				ft_round(char *num, int len, t_bint *valnum, \

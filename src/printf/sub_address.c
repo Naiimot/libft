@@ -6,7 +6,7 @@
 /*   By: tdelabro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/08 15:13:43 by tdelabro          #+#    #+#             */
-/*   Updated: 2019/02/28 14:44:51 by tdelabro         ###   ########.fr       */
+/*   Updated: 2020/11/13 13:39:20 by tdelabro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ int			ft_get_len_uhex(uintmax_t num, t_format *format)
 {
 	int			len;
 
-	if (num == 0 && !(format->flag_prec == TRUE && format->precision == 0))
+	if (num == 0 && !(format->f_prec == TRUE && format->precision == 0))
 		return (1);
 	len = 0;
 	while ((num != 0) && (++len))
@@ -71,10 +71,9 @@ int			ft_sub_address(t_format *format, va_list args, char *buff)
 	ret = 0;
 	len = ft_get_len_uhex(add, format);
 	ret = ft_pre_printing_add(format, len, buff);
-	if (add == 0 && format->flag_prec == TRUE && format->precision == 0)
-		return (ret);
-	ret += ft_getadd(add, buff, len);
-	if (format->flag_left == TRUE)
+	if (!(add == 0 && format->f_prec == TRUE && format->precision == 0))
+		ret += ft_getadd(add, buff, len);
+	if (format->f_left == TRUE)
 		while (ret < format->field_width)
 			ret += ft_buff(buff, ' ', 0);
 	return (ret);

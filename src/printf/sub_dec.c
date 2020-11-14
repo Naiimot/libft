@@ -6,7 +6,7 @@
 /*   By: tdelabro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/18 23:25:38 by tdelabro          #+#    #+#             */
-/*   Updated: 2019/02/20 16:13:02 by tdelabro         ###   ########.fr       */
+/*   Updated: 2020/11/13 13:43:37 by tdelabro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ static int		ft_get_len_dec(intmax_t num, t_format *format)
 {
 	int			len;
 
-	if (num == 0 && !(format->flag_prec == TRUE && format->precision == 0))
+	if (num == 0 && !(format->f_prec == TRUE && format->precision == 0))
 		return (1);
 	len = 0;
 	while ((num != 0) && (++len))
@@ -58,10 +58,9 @@ static int		ft_print_dec(t_format *format, int len, char *buff,\
 
 	ret = 0;
 	ret += ft_pre_printing_dec(format, len, buff, (num < 0) ? 1 : 0);
-	if (num == 0 && format->flag_prec == TRUE && format->precision == 0)
-		return (ret);
-	ret += ft_getdec(num, buff, len);
-	if (format->flag_left == TRUE)
+	if (!(num == 0 && format->f_prec == TRUE && format->precision == 0))
+		ret += ft_getdec(num, buff, len);
+	if (format->f_left == TRUE)
 		while (ret < format->field_width)
 			ret += ft_buff(buff, ' ', 0);
 	return (ret);

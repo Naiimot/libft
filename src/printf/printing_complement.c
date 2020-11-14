@@ -6,7 +6,7 @@
 /*   By: tdelabro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/08 16:59:16 by tdelabro          #+#    #+#             */
-/*   Updated: 2019/05/25 22:23:39 by tdelabro         ###   ########.fr       */
+/*   Updated: 2020/11/14 14:10:57 by tdelabro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 
 int	ft_post_printing(int ret, t_format *format)
 {
-	if (format->flag_left == TRUE)
+	if (format->f_left == TRUE)
 		while (ret < format->field_width)
 			ret += write(g_fd, " ", 1);
 	return (ret);
@@ -36,9 +36,9 @@ int	ft_mod(t_format *format, char *buff, t_bool sign)
 	ret = 0;
 	if (sign == TRUE)
 		ret += ft_buff(buff, '-', 0);
-	else if (format->flag_sign == TRUE)
+	else if (format->f_sign == TRUE)
 		ret += ft_buff(buff, '+', 0);
-	else if (format->flag_space == TRUE)
+	else if (format->f_space == TRUE)
 		ret += ft_buff(buff, ' ', 0);
 	return (ret);
 }
@@ -53,7 +53,7 @@ int	ft_endzero(t_format *format, int len, char *buff, int tmp)
 	int ret;
 
 	ret = 0;
-	if (format->flag_prec == TRUE)
+	if (format->f_prec == TRUE)
 		while (len < tmp--)
 			ret += ft_buff(buff, '0', 0);
 	return (ret);
@@ -85,4 +85,14 @@ int	ft_buff(char *buff, char c, t_bool clear)
 		}
 		return (1);
 	}
+}
+
+int	padd(int limit, int ret, char *buff, char c)
+{
+	if (limit > 0)
+	{
+		while (ret < limit)
+			ret += ft_buff(buff, c, 0);
+	}
+	return (ret);
 }
